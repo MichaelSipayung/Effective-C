@@ -3,13 +3,14 @@
 #include <wchar.h>
 #include <stdlib.h>
 #define S_INIT "abc"
-
+#define __STDC_WANT_LIB_EXT1__ 1
 void using_siz_len(void);
 size_t efesien_strlen(const char *);
 void cp_str(void);
 char *imp_strcpy(char *,const char*);
 void get_y_or_n(void);
 char *imp_gets(char *);
+void cor_get_y_or_n(void);
 int main(void){
     char s[4]=S_INIT;
     printf("using array to store string literal: %s\n", s);
@@ -76,4 +77,13 @@ char *imp_gets(char *dest){
     }
     *p='\0';
     return dest;
+}
+void cor_get_y_or_n(void){
+    char response[8];
+    size_t len= sizeof(response);
+    puts("Continue ? [Y]: n");
+    //gets_s(response, len);    
+    if(response[0]='n'){
+        exit(0);
+    }
 }
